@@ -1,16 +1,36 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper]{geometry}
-\usepackage{miscdoc}
+
+%\usepackage{miscdoc}  % no idea where that package is (maybe just on Robin's home machine)
+%
+% so go manual ...
+
+\newcommand\Package[1]{\texttt{#1}}
+\newcommand\cs[1]{\texttt{\textbackslash#1}}
+\newcommand\meta[1]{$\langle$\textnormal{\itshape#1}$\rangle$}
+\newcommand\marg[1]{\texttt{\{\meta{#1}\}}}
+
+\usepackage[T1]{fontenc}  % needed for \textbackslash
+
 \usepackage[scaled=0.85]{luximono}
+
+\def\labelformat{} \usepackage{fncylab} % testing
+
 \begin{document}
 \title{The \Package{fncylab} package}
 \author{Robin Fairbairns\thanks{Email:
-    \emph{robin.fairbairns@cl.cam.ac.uk}}}
-\date{2003-08-13, version 1.0}
+    \emph{robin.fairbairns@cl.cam.ac.uk} --- no longer active}}
+\date{2019-08-23, version 1.1}
 \maketitle
 
+As of 2019 the \LaTeX{} kernel already contains these extra commands
+and the modification to \cs{refstepcounter}. So on nevery kernels
+this package is no longer necessary and will silently exit.
+
+\section{Introduction}
+
 The package provides support for arbitrary structuring of the way
-label references look.  The command \cmdinvoke*{labelformat}{ctr}{defn}
+label references look.  The command \cs{labelformat}\marg{ctr}\marg{defn}
 specifies the structure of a label:
 \begin{description}
 \item[\emph{\texttt{ctr}}] the counter that will define the label

@@ -1,5 +1,6 @@
-%  FNCYLAB.STY v1.0
+%  FNCYLAB.STY v1.1
 %  Copyright 2000,2003 Robin Fairbairns (robin.fairbairns@cl.cam.ac.uk)
+%  Copyright 2019 LaTeX Team
 %
 %   This program can redistributed and/or modified under the terms
 %   of the LaTeX Project Public License; either version 1.2 of the
@@ -41,6 +42,12 @@
 % which will typeset as
 % ... Section 3 shows us that ...
 
+% as 2019 the modification (and \labelformat and \Ref) has been added
+% to the LaTeX kernel, so there is nothing to do for this package any more
+% unless it is run using an older kernel.
+
+\ifx\labelformat\@undefined   % if defined we assume a newer kernel
+
 % this check and redefinition is suggested in the latex source
 % (ltxref.dtx)
 \CheckCommand*\refstepcounter[1]{\stepcounter{#1}%
@@ -57,5 +64,11 @@
 \DeclareRobustCommand\Ref[1]{\protected@edef\@tempa{\ref{#1}}%
    \expandafter\MakeUppercase\@tempa
 }
+\else
+\PackageWarningNoLine{fncylab}{%
+fncylab is not required with releases after 2019.\MessageBreak
+All its functionality is now in the LaTeX kernel}
+
+\fi
 
 \endinput
