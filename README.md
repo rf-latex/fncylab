@@ -1,4 +1,6 @@
 # fncylab
 Alter the format of \label references
 
-These days part of the LaTeX kernel so only necessary on old installations.
+Since the 2019 LaTeX release the functionality of this package is
+included in the LaTeX kernel so this package is only necessary on old
+installations.
