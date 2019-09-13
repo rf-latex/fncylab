@@ -1,6 +1,6 @@
 
 module = "fncylab"
-installfiles={'*.sty'}
+sourcefiles={'*.sty'}
 docfiles={'fncylab-example.tex'}
 typesetfiles={'fncylab.tex'}
 checkengines   = {}
